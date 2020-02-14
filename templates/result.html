@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<style>
+h1{
+    color: navy;
+    font-weight: bold;
+    font-family: 'Arial';
+    font-size: 53px;
+}
+.p1{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.p2{
+    font-size: 20px;
+    text-align: center;
+    font-weight:bold;
+    color: rgb(4,122,133);
+}
+.container{
+        width: 350px;
+        text-align: justify;
+        font-size: 15px;
+}
+img{
+    margin-top:20px;
+}
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:7080/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:7080/recommender">House Recommendation</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Info
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="http://localhost:7080/map">Melbourne Map</a>
+                <a class="dropdown-item" href="http://localhost:5000/price">Price per area</a>
+              </div>
+            </li>
+          </ul>
+        </div> -->
+      </nav>
+<center>
+    <!-- <img src="http://localhost:7080/storage/home.jpg" width=25% height="auto" alt="melbourne property price estimator"/> -->
+    <br>
+    <br>
+    <div class="p1">
+        Churn Prediction for:
+    </div>
+    <hr>
+    <div class="container">
+        <b>Region: </b> {{region}}<br>
+        <b>Gender: </b> {{gender}}<br>
+        <b>Age: </b> {{age}}<br>
+        <b>Num of Products: </b> {{product}}<br>
+        <b>Tenure: </b> {{tenure}}<br>
+        <b>Credit Card: </b> {{credit}}<br>
+        <b>Active Member: </b> {{active}}<br>
+        <b>Balance: </b> {{balance}}<br>
+        <b>Salary: </b> {{salary}}<br>
+    </div>
+    <hr>
+    <br>
+    <div class="p1">
+        is:
+    </div>
+    <div class="p2">
+        <label for="result">{{result}}</label></div>
+    <hr>
+    <a href="/" target="_self" >
+        <button style="background-color: navy; color: whitesmoke" class="btn btn-light">
+            Predict Again
+        </button>    
+      </a>
+</center>
+</body>
+</html>

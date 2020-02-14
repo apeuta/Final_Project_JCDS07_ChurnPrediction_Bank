@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Bank|Churn Prediction</title>
+</head>
+<style>
+h1{
+    color: navy;
+    font-weight: bold;
+    font-family: 'Arial';
+    font-size: 40px;
+}
+img{
+    margin-top:20px;
+}
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:5050/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="http://localhost:7080/recommender">House Recommendation</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Info
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown"> -->
+                <!-- <a class="dropdown-item" href="http://localhost:7080/map">Melbourne Map</a> -->
+                <!-- <a class="dropdown-item" href="http://localhost:5000/price">Price per area</a> -->
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+<center>
+    <br>
+    <br>
+    <br>
+    <h1>CHURN PREDICTION GENERATOR</h1>
+    <br>
+    <form method="POST" action="http://localhost:5050/result">
+        <br>
+        <!-- COBA FORM -->
+            <div class="form-row" style="width: 700px">
+              <div class="form-group col-md-3" style="width: 120px" required="required">
+                <label for="geo">Region :</label>
+                <select name="geo" class="form-control">
+                  <option value="fra">France</option>
+                  <option value="ger">German</option>
+                  <option value="spa">Spain</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3" style="width: 120px" required="required">
+                <label for="gender">Gender :</label>
+                <select name="gender" class="form-control">
+                  <option value="m">Male</option>
+                  <option value="f">Female</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3" style="width: 120px" required="required">
+                <label for="ccard">Has Credit Card(s) :</label>
+                <select name="ccard" class="form-control">
+                  <option value="y">Yes</option>
+                  <option value="n">No</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3" style="width: 120px" required="required">
+                <label for="active">Active Member :</label>
+                <select name="active" class="form-control">
+                    <option value="y">Yes</option>
+                    <option value="n">No</option>
+                  </select>
+              </div>
+            </div>
+            <!-- <div class="form-group" style="width: 500px">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group" style="width: 500px">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div> -->
+            <div class="form-row" style="width: 800px">
+              <div class="form-group col-md-4" required="required">
+                <label for="prod">Product(s) Used :</label>
+                <input type="number" name="prod" step= "1" min="1" max="4" style="width: 200px" id="prod" class="form-control" required=True/>
+            </div>
+              <div class="form-group col-md-4" required="required">
+                <label for="age">Age :</label>
+                <input type="number" name="age" step= "1" min="1" max="90" style="width: 200px" id="age" class="form-control" required=True/>
+            </div>
+              <div class="form-group col-md-4" required="required">
+                <label for="tenure">Tenure :</label>
+                <input type="number" name="tenure" step= "1" min="1" max="10" style="width: 200px" id="tenure" class="form-control" required=True/>
+            </div>
+            </div>
+            <div class="form-row" style="width: 800px">
+                <div class="form-group col-md-4" required="required">
+                    <label for="credit">Credit Score :</label>
+                    <input type="text" class="form-control" style="width: 200px" name="credit" placeholder="must be integer..">
+                </div>
+                <div class="form-group col-md-4" required="required">
+                    <label for="salary">Salary :</label>
+                    <input type="text" class="form-control" style="width: 200px" name="salary" placeholder="must be integer..">
+                </div>
+                <div class="form-group col-md-4" required="required">
+                    <label for="balance">Balance :</label>
+                    <input type="text" class="form-control" style="width: 200px" name="balance" placeholder="must be integer..">
+                </div>
+              </div>
+        <!-- <b><b>Your Property Specifications</b></p> -->
+        <!-- <div class="row" style="width: 1000px">
+            <div class="col-sm-3" style="width: 250px">
+                <label for="cr">Credit Score :</label>
+                <input type="number" name="crs" step= "1" min="1" max="100" style="width: 200px" id="cr" class="form-control" required=True/>
+            </div>
+            <div class="col-sm-3" style="width: 250px">
+                <label for="age">Age :</label>
+                <input type="number" name="ages" step= "1" min="17" max="80" style="width: 200px" id="age" class="form-control" required=True/>
+            </div>
+            <div class="col-sm-3" style="width: 250px">
+                <label for="ten">Tenure :</label>
+                <input type="number" name="tens" step= "1" min="1" max="10" style="width: 200px" id="ten" class="form-control" required=True/>
+            </div>
+            <div class="col-sm-3" style="width: 250px">
+                <label for="quantity">Quantity (between 1 and 5):</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="5">
+            </div>
+        </div> -->
+        <br>
+        <!-- <div class="row" style="width: 500px">
+            <div class="input-group mb-3" style="width: 500px">
+                <span class="input-group-text" style="width: 125px">Product Used :</span>    
+                <select name="product" style="width: 250px" class="form-control" required="required">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option disabled selected hidden>Where are they come from?</option>
+                </select>
+            </div>
+            <div class="input-group mb-3" style="width: 500px">
+                <span class="input-group-text" style="width: 125px">Has Credit Card :</span>
+                <select name="cc" style="width: 250px" class="form-control" required="required">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                    <option disabled selected hidden>Has a CC?</option>
+                </select>
+            </div>
+            <div class="input-group mb-3" style="width: 500px">
+                <span class="input-group-text" style="width: 125px">Active Member :</span>
+                <select name="active" style="width: 250px" class="form-control" required="required">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                    <option disabled selected hidden>Active?</option>
+                </select>
+            </div>
+        </div> -->
+        <br>
+        <button type="submit" style="background-color:navy; color: goldenrod; width: 700px"
+        class="btn btn-info">PREDICT NOW!</button>
+    </form>
+</center>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
