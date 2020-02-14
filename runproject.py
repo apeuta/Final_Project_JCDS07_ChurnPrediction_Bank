@@ -80,17 +80,23 @@ def result():
         #Result
         pred = model.predict(
             [[fra, ger, spa, fem, mal, crd, age, ten, bal, prod,
-            crd, act, sal]]
+            cc, act, sal]]
+        )[0]
+        proba = model.predict_proba(
+            [[fra, ger, spa, fem, mal, crd, age, ten, bal, prod,
+            cc, act, sal]]
         )[0]
         if pred == 0:
+            prbb = proba[0]*100
             rslt = "RETAIN"
         else:
+            prbb = proba[1]*100
             rslt = "EXIT"
         return render_template(
             "result.html", region= strRegion, gender= strGender,
             credit= crd, age= age, tenure= ten, balance= bal,
             product= prod, ccard = strCard, active= strAct, salary= sal,
-            result= rslt 
+            result= rslt, proba = prbb
         )
 
 
