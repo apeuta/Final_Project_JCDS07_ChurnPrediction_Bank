@@ -1,4 +1,4 @@
-# Final Project JCDS07BSD | BANK CUSTOMER CHURN PREDICTION
+# Final Project | BANK CUSTOMER CHURN PREDICTION
 by: Andra Pranata Utama | JCDS00702201910003 <br>
 __Dataset__: Churn Modelling <br>
 __Source__: [Kaggle](https://www.kaggle.com/shrutimechlearn/churn-modelling)
@@ -7,8 +7,8 @@ __Source__: [Kaggle](https://www.kaggle.com/shrutimechlearn/churn-modelling)
 
 ## PROJECT DESCRIPTION
 Memberikan prediksi apakah seorang nasabah bank akan menutup rekening banknya atau tidak. <br>
-Model klasifikasi yang digunakan adalah Random Forest Classifier
-![Score](https://github.com/apeuta/Final_Project_JCDS07_ChurnPrediction_Bank/blob/master/img/score.png "Score") <br>
+Model klasifikasi yang digunakan adalah Random Forest Classifier<br>
+![Score](https://github.com/apeuta/Final_Project_JCDS07_ChurnPrediction_Bank/blob/master/img/score.png "Score")
 
 ## PROJECT GOALS
 Membuat sebuah aplikasi berbasis localhost, untuk mengklasifikasikan apakah nasabah akan menutup rekening, atau bertahan sebagai nasabah.<br>
