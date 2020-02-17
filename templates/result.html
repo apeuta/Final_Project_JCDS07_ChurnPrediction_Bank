@@ -28,7 +28,7 @@ h1{
     font-size: 50px;
     text-align: center;
     font-weight:bold;
-    color: skyblue
+    color: {{color}}
 }
 .container{
         width: 350px;
@@ -69,8 +69,10 @@ img{
     <!-- <img src="http://localhost:7080/storage/home.jpg" width=25% height="auto" alt="melbourne property price estimator"/> -->
     <br>
     <br>
-    <div class="h1">
+    <div>
+      <h1>
         CHURN PREDICTION FOR :
+      </h1>
     </div>
     <hr>
     <div class="container">
@@ -79,7 +81,8 @@ img{
         <b>Age: </b> {{age}}<br>
         <b>Num of Products: </b> {{product}}<br>
         <b>Tenure: </b> {{tenure}}<br>
-        <b>Credit Card: </b> {{credit}}<br>
+        <b>Credit Score: </b> {{credit}}<br>
+        <b>Credit Card: </b> {{ccard}}<br>
         <b>Active Member: </b> {{active}}<br>
         <b>Balance: </b> {{balance}}<br>
         <b>Salary: </b> {{salary}}<br>
@@ -93,7 +96,7 @@ img{
         <label for="result">{{proba}}% {{result}}</label></div>
     <hr>
     <a href="/" target="_self" >
-        <button style="background-color: navy; color: whitesmoke; width: 600px" class="btn btn-light">
+        <button style="background-color: navy; color: whitesmoke; width: 700px" class="btn btn-light">
             Predict Again
         </button>    
       </a>

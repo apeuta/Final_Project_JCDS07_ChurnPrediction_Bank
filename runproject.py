@@ -10,10 +10,6 @@ app = Flask(__name__)
 def home():
     return render_template("predict.html")
 
-# @app.route("/storage/<path:x")
-# def storage(x):
-#     return send_from_directory("bin", x)
-
 @app.route("/result", methods=["POST", "GET"])
 def result():
     if request.method == "POST":
@@ -66,13 +62,13 @@ def result():
             act = 0
             strAct = "No"
         #Product
-        prod = float(input["prod"])
+        prod = int(input["prod"])
         #Age
-        age = float(input["age"])
+        age = int(input["age"])
         #Tenure
-        ten = float(input["tenure"])
+        ten = int(input["tenure"])
         #Credit
-        crd = float(input["credit"])
+        crd = int(input["credit"])
         #Salary
         sal = float(input["salary"])
         #Balance
@@ -85,14 +81,16 @@ def result():
         if pred == 0:
             prbb = round((proba[0]*100), 1)
             rslt = "RETAIN"
+            color = "green"
         else:
             prbb = round((proba[1]*100), 1)
             rslt = "EXIT"
+            color = "red"
         return render_template(
             "result.html", region= strRegion, gender= strGender,
             credit= crd, age= age, tenure= ten, balance= bal,
             product= prod, ccard = strCard, active= strAct, salary= sal,
-            result= rslt, proba = prbb
+            result= rslt, proba = prbb, color = color
         )
 
 

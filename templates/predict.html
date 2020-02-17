@@ -11,7 +11,7 @@
             <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Bank|Churn Prediction</title>
+    <title>BCCP Generator</title>
 </head>
 <style>
 h1{
@@ -19,6 +19,11 @@ h1{
     font-weight: bold;
     font-family: 'Arial';
     font-size: 40px;
+}
+h3{
+    color: gray;
+    font-family: 'Arial';
+    font-size: 20px;
 }
 img{
     margin-top:20px;
@@ -52,7 +57,9 @@ img{
     <br>
     <br>
     <br>
-    <h1>CHURN PREDICTION GENERATOR</h1>
+    <h1>BCCP GENERATOR</h1>
+    <br>
+    <h3> (Bank Customer Churn Prediction Generator) </h3>
     <br>
     <form method="POST" action="http://localhost:5050/result">
         <br>
@@ -90,34 +97,34 @@ img{
             <div class="form-row" style="width: 800px">
                 <div class="form-group col-md-4" required="required">
                     <label for="credit">Credit Score :</label>
-                    <input type="text" class="form-control" style="width: 200px" name="credit" placeholder="350-850">
+                    <input type="number" step= "1" min="350" max="850" class="form-control" style="width: 200px" name="credit" placeholder="350-850">
                 </div>
                 <div class="form-group col-md-4" required="required">
-                    <label for="balance">Balance :</label>
-                    <input type="text" class="form-control" style="width: 200px" name="balance" placeholder="0-300000">
+                    <label for="balance">Balance (US$) :</label>
+                    <input type="number" step= ".01" min="0" max="300000" class="form-control" style="width: 200px" name="balance" placeholder="0-300000">
                 </div>
                 <div class="form-group col-md-4" required="required">
-                    <label for="salary">Salary :</label>
-                    <input type="text" class="form-control" style="width: 200px" name="salary" placeholder="0-200000">
+                    <label for="salary">Salary (US$) :</label>
+                    <input type="number" step= ".01" min="0" max="200000" class="form-control" style="width: 200px" name="salary" placeholder="0-200000">
                 </div>
             </div>
             <div class="form-row" style="width: 800px">
               <div class="form-group col-md-4" required="required">
                 <label for="age">Age :</label>
-                <input type="number" name="age" step= "1" min="18" max="100" style="width: 200px" id="age" class="form-control" required=True/>
+                <input type="number" placeholder="18-100" name="age" step= "1" min="18" max="100" style="width: 200px" id="age" class="form-control" required=True/>
             </div>
               <div class="form-group col-md-4" required="required">
                 <label for="tenure">Tenure :</label>
-                <input type="number" name="tenure" step= "1" min="0" max="10" style="width: 200px" id="tenure" class="form-control" required=True/>
+                <input type="number" placeholder="1-10" name="tenure" step= "1" min="0" max="10" style="width: 200px" id="tenure" class="form-control" required=True/>
             </div>
             <div class="form-group col-md-4" required="required">
               <label for="prod">Product(s) Used :</label>
-              <input type="number" name="prod" step= "1" min="1" max="4" style="width: 200px" id="prod" class="form-control" required=True/>
+              <input type="number" placeholder="1-4" name="prod" step= "1" min="1" max="4" style="width: 200px" id="prod" class="form-control" required=True/>
             </div> 
             </div>
         <br>
         <br>
-        <button type="submit" style="background-color:navy; color: goldenrod; width: 700px"
+        <button type="submit" style="background-color:navy; color: whitesmoke; width: 700px"
         class="btn btn-info">PREDICT NOW!</button>
     </form>
 </center>
