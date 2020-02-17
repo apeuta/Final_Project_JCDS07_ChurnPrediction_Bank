@@ -78,19 +78,15 @@ def result():
         #Balance
         bal = float(input["balance"])
         #Result
-        pred = model.predict(
-            [[fra, ger, spa, fem, mal, crd, age, ten, bal, prod,
-            cc, act, sal]]
-        )[0]
-        proba = model.predict_proba(
-            [[fra, ger, spa, fem, mal, crd, age, ten, bal, prod,
-            cc, act, sal]]
-        )[0]
+        datainput = [[fra, ger, spa, fem, mal, crd, age, ten, bal, prod, cc, act, sal]]
+        datascale = scale.transform(datainput)
+        pred = model.predict(datascale)[0]
+        proba = model.predict_proba(datascale)[0]
         if pred == 0:
-            prbb = proba[0]*100
+            prbb = round((proba[0]*100), 1)
             rslt = "RETAIN"
         else:
-            prbb = proba[1]*100
+            prbb = round((proba[1]*100), 1)
             rslt = "EXIT"
         return render_template(
             "result.html", region= strRegion, gender= strGender,
