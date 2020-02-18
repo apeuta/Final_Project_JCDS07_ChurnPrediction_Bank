@@ -10,6 +10,14 @@ app = Flask(__name__)
 def home():
     return render_template("predict.html")
 
+@app.route("/stats")
+def stats():
+    return render_template("stats.html")
+
+@app.route('/storage/<path:x>')
+def storage(x):
+    return send_from_directory("storage", x)
+
 @app.route("/result", methods=["POST", "GET"])
 def result():
     if request.method == "POST":
@@ -75,9 +83,8 @@ def result():
         bal = float(input["balance"])
         #Result
         datainput = [[fra, ger, spa, fem, mal, crd, age, ten, bal, prod, cc, act, sal]]
-        datascale = scale.transform(datainput)
-        pred = model.predict(datascale)[0]
-        proba = model.predict_proba(datascale)[0]
+        pred = model.predict(datainput)[0]
+        proba = model.predict_proba(datainput)[0]
         if pred == 0:
             prbb = round((proba[0]*100), 1)
             rslt = "RETAIN"
@@ -96,5 +103,4 @@ def result():
 
 if __name__ == "__main__":
     model = joblib.load("modelFix")
-    scale = joblib.load("modelScaler")
     app.run(debug=True, port=5050)
